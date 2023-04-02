@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+{% endblock title %}
+{% block content %}
+<main>
+  {% thumbnail task1.image "826x734" crop="center" upscale=False as im %}
+  <img class="rounded mx-auto d-block" src="{{ im.url }}" alt="Responsive image" >
+  {% endthumbnail %}
+  <article class="col-12 col-md-9">
+    <p>
+      {{ task1.answer }}
+    </p>
+  </article>
+  {% include 'includes/comments.html' %}
+  </div>
+</main>
+{% endblock content %}

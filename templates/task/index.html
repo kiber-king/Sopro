@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% include 'includes/head.html' %}
+{% block title %}
+  Последние обновления на сайте
+{% endblock title %}
+{% block content %}
+<h2>
+<p><a href="{% url 'task:first_answer'%}">Решение с 2 арками</a></p>
+<p><a href="{% url 'task:second_answer'%}">Решение с 3 арками</a></p>
+<p><a href="{% url 'task:third_answer'%}">Решение с 4 арками</a></p>
+</h2>
+{% endblock content %}
