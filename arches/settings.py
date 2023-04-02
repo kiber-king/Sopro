@@ -26,6 +26,7 @@ SECRET_KEY = '8@2)%j!xc45b&04q)ra9@4syujo&skg6917z0$!pyr5$5_p+=o'
 DEBUG = False
 
 ALLOWED_HOSTS = [
+'stonedestoyers.pythonanywhere.com',
     'localhost',
         '127.0.0.1',
         '[::-1]',
