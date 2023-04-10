@@ -1,5 +1,14 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
-from . models import Task1, Task2, Task3
+
+from .models import Task
+
+
+def get_paginator(request, obj_list):
+    paginator = Paginator(obj_list, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return page_obj
 
 
 def index(request):
@@ -7,30 +16,15 @@ def index(request):
     return render(request, template)
 
 
-def first_answer(request):
-    template = 'task/first_answer.html'
-    task = get_object_or_404(Task1)
+def answer(request):
+    template = 'task/answer_list.html'
+    tasks = Task.objects.all()
+    page_obj = get_paginator(request, tasks)
     context = {
-        'task1': task,
+        'page_obj': page_obj
     }
     return render(request, template, context)
 
-
-def second_answer(request):
-    template = 'task/second_answer.html'
-    task = get_object_or_404(Task2)
-    context = {
-        'task2': task,
-    }
-    return render(request, template, context)
-
-
-def third_answer(request):
-    template = 'task/third_answer.html'
-    task = get_object_or_404(Task3)
-    context = {
-        'task3': task,
-    }
-    return render(request, template, context)
-
+def task_detail(request, slug):
+    task = get_object_or_404(Task, slug=slug)
 

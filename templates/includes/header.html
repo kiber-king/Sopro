@@ -1,10 +1,21 @@
 <header>
-  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+  <nav class="navbar navbar-light" style="background-color: lightgray">
     <div class="container">
       <a class="navbar-brand" href="{% url 'task:index' %}">
         <div class="position-absolute top-5 start-50 translate-middle">
         <span style="color:red">Камне</span>ломы</div>
       </a>
-</div>
+      {% with request.resolver_match.view_name as view_name %}
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link {% if view_name  == 'about:author' %}active{% endif %}"
+             href="{% url 'task:answer_list' %}"
+          >
+            Задачи
+          </a>
+        </li>
+      {% endwith %}
+      </ul>
+    </div>
   </nav>
 </header>

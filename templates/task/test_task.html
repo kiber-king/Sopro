@@ -1,0 +1,35 @@
+
+{% load thumbnail %}
+{% block title %}
+{% endblock title %}
+{% block content %}
+<main>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-xl-6">
+  <div class="card bg-body shadow p-3 border-success mb-5 border-2 rounded-3" >
+    <p class="text-start  fw-weight-bold"><strong>Задача № {{task.slug}}</strong></p>
+  {% thumbnail task.image "826x734" crop="center" upscale=False as im %}
+  <img class="rounded mx-auto d-block" src="{{ im.url }}" alt="Responsive image" >
+  {% endthumbnail %}
+  <div class="card-body">
+    <h5 class="card-title">Дано: </h5>
+    <p class="card-text">{{ task.answer }}</p>
+
+  <div class="row">
+      <aside class="col-12 col-md-3">
+        <ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <a href={% url 'task:index' %}>
+    <button type="button" class="btn btn-success">Подробнее</button> </a>
+  </li>
+        </ul>
+      </aside>
+  </div>
+    <p class="card-text"><small class="text-muted">Последнее обновление 3 мин. назад</small></p>
+  </div>
+</div>
+  </div>
+  </div>
+
+</main>
+{% endblock content %}
