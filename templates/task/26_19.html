@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+{% endblock title %}
+{% block content %}
+<main>
+  <h3>
+  <p class="text-center">Задача №{{task.slug}}</p></h3>
+  {% thumbnail task.image "826x734" crop="center" upscale=False as im %}
+  <img class="rounded mx-auto d-block" src="{{ im.url }}" alt="Responsive image" >
+  {% endthumbnail %}
+  <article class="col-12 col-md-9" style="margin-left:50px;">
+    <p class="fw-weight-bold fs-4">
+      {{ task.answer }}
+    </p>
+  </article>
+
+  {% include 'includes/comment_26_19.html' %}
+  </div>
+  <div style="margin-left:50px;">
+  <a
+    href="https://drive.google.com/file/d/1FvzlusxQv5D3D9WymQv-GD4UsUc36qdE/view?usp=sharing" download="Zadacha_21_17.pdf" target="_blank" class="fs-4 link-offset-5 link-underline link-underline-opacity-0">Подробное решение</a>
+</div>
+</main>
+
+{% endblock content %}

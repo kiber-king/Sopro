@@ -6,15 +6,14 @@
 <main>
   <h3>
   <p class="text-center">Задача №{{task.slug}}</p></h3>
-  {% thumbnail task.image "826x734" crop="center" upscale=False as im %}
-  <img class="rounded mx-auto d-block" src="{{ im.url }}" alt="Responsive image" >
+  {% thumbnail task.image "419x237" crop="center" upscale=False as im %}
+  <img class="rounded mx-auto d-block" src="{{ im.url }}">
   {% endthumbnail %}
   <article class="col-12 col-md-9" style="margin-left:50px;">
     <p class="fw-weight-bold fs-4">
       {{ task.answer }}
-    </p>
-  </article>
-  <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
+    </p></article>
+    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-left:50px;">Разновидности задачи(2, 3, 4 арки)</button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -33,12 +32,12 @@
     </a></p>
   </div>
 </div>
-  {% include 'includes/comments.html' %}
+
+  {% include 'includes/comments2.html' %}
   </div>
   <div style="margin-left:50px;">
   <a
     href="https://drive.google.com/file/d/130kkxiSq1C3j2wdTap7FRbE4P3pUIPqB/view?usp=sharing" download="Zadacha_21_17.pdf" target="_blank" class="fs-4 link-offset-5 link-underline link-underline-opacity-0">Подробное решение</a>
 </div>
 </main>
-
 {% endblock content %}

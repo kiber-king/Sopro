@@ -25,6 +25,20 @@ def answer(request):
     }
     return render(request, template, context)
 
+
 def task_detail(request, slug):
     task = get_object_or_404(Task, slug=slug)
+    templates = {
+        '2_43_2': 'task/2_43_2.html',
+        '2_43_3': 'task/2_43_3.html',
+        '2_43_4': 'task/2_43_4.html',
+        '26_17': 'task/26_17.html',
+        '26_18': 'task/26_18.html',
+        '26_19': 'task/26_19.html',
+        '26_20': 'task/26_20.html',
+    }
+    context = {
+        'task': task,
+    }
+    return render(request, templates[slug], context)
 
